@@ -27,6 +27,8 @@
 
 #include <math.h>
 #include <QDebug>
+#include <QDir>
+#include <QFileInfo>
 #include <QGraphicsScene>
 #include <QGraphicsSvgItem>
 #include <QGraphicsTextItem>
@@ -371,6 +373,7 @@ void loadFromXml(producer_ktitle self,
     }
     mlt_properties_set_int(producer_props, "meta.media.width", originalWidth);
     mlt_properties_set_int(producer_props, "meta.media.height", originalHeight);
+    const QDir rootDir(QFileInfo(mlt_properties_get(producer_props, "resource")).absolutePath());
 
     QDomNode node;
     QDomNodeList items = title.elementsByTagName("item");
@@ -657,32 +660,41 @@ void loadFromXml(producer_ktitle self,
                     gitem = rec;
                 }
             } else if (nodeAttributes.namedItem("type").nodeValue() == "QGraphicsPixmapItem") {
-                const QString url
-                    = node.namedItem("content").attributes().namedItem("url").nodeValue();
                 const QString base64
                     = items.item(i).namedItem("content").attributes().namedItem("base64").nodeValue();
                 QImage img;
-                if (base64.isEmpty()) {
-                    img.load(url);
-                } else {
+                if (!base64.isEmpty()) {
                     img.loadFromData(QByteArray::fromBase64(base64.toLatin1()));
+                } else {
+                    QString url
+                        = node.namedItem("content").attributes().namedItem("url").nodeValue();
+                    if (QFileInfo(url).isRelative()) {
+                        url = QDir::cleanPath(rootDir.absoluteFilePath(url));
+                    }
+                    img.load(url);
                 }
                 ImageItem *rec = new ImageItem(img);
                 scene->addItem(rec);
                 gitem = rec;
             } else if (nodeAttributes.namedItem("type").nodeValue() == "QGraphicsSvgItem") {
-                QString url
-                    = items.item(i).namedItem("content").attributes().namedItem("url").nodeValue();
                 QString base64
                     = items.item(i).namedItem("content").attributes().namedItem("base64").nodeValue();
                 QGraphicsSvgItem *rec = NULL;
-                if (base64.isEmpty()) {
-                    rec = new QGraphicsSvgItem(url);
-                } else {
+                if (!base64.isEmpty()) {
                     rec = new QGraphicsSvgItem();
                     QSvgRenderer *renderer
                         = new QSvgRenderer(QByteArray::fromBase64(base64.toLatin1()), rec);
                     rec->setSharedRenderer(renderer);
+                } else {
+                    QString url = items.item(i)
+                                      .namedItem("content")
+                                      .attributes()
+                                      .namedItem("url")
+                                      .nodeValue();
+                    if (QFileInfo(url).isRelative()) {
+                        url = QDir::cleanPath(rootDir.absoluteFilePath(url));
+                    }
+                    rec = new QGraphicsSvgItem(url);
                 }
                 if (rec) {
                     scene->addItem(rec);
