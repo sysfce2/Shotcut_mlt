@@ -243,6 +243,8 @@ static int load_properties(mlt_properties self, const char *filename)
 
         // Close the file
         fclose(file);
+    } else {
+        mlt_log_warning(NULL, "Failed to open properties file %s for parsing!\n", filename);
     }
     return file ? 0 : errno;
 }
