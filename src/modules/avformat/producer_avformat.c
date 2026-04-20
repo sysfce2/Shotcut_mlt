@@ -640,6 +640,9 @@ static mlt_properties find_default_streams(producer_avformat self)
             snprintf(key, sizeof(key), "meta.media.%u.codec.layout", i);
             mlt_properties_set(meta_media, key, layout);
             break;
+        case AVMEDIA_TYPE_SUBTITLE:
+            mlt_properties_set(meta_media, key, "subtitle");
+            break;
         default:
             break;
         }
