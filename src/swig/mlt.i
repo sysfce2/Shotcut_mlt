@@ -1,6 +1,6 @@
 /**
  * mlt.i - Swig Bindings for mlt++
- * Copyright (C) 2004-2021 Meltytech, LLC
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published
@@ -16,10 +16,12 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+
 // SWIG is a parser, not a full C++ compiler, and it fails on compiler-specific
 // keywords like __declspec(dllexport). These %define directives make all of
 // our module-specific export macros invisible *only* to SWIG's parser,
 // resolving syntax errors during wrapper generation.
+
 %module mlt
 %define MLT_EXPORT
 %enddef
@@ -50,6 +52,8 @@
 %define MLTOLDFILM_EXPORT
 %enddef
 %define MLTOPENCV_EXPORT
+%enddef
+%define MLTOPENFX_EXPORT
 %enddef
 %define MLTPLUS_EXPORT
 %enddef
@@ -130,6 +134,7 @@ namespace Mlt {
 %rename(__assign__) Frame::operator=;
 
 #if defined(SWIGPYTHON)
+%feature("autodoc", "1");
 %feature("shadow") Frame::get_waveform(int, int) %{
     def get_waveform(*args): return _mlt7.frame_get_waveform(*args)
 %}

@@ -25,7 +25,7 @@
 #include <framework/mlt.h>
 
 namespace Mlt {
-/** \brief C++ wrapper for ::mlt_image \u2014 a decoded video frame buffer.
+/** \brief C++ wrapper for ::mlt_image -- a decoded video frame buffer.
  *
  * Holds a raw pixel buffer together with its format metadata (width, height,
  * image format, colorspace). Supports multi-plane formats via plane() and

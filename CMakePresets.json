@@ -74,7 +74,9 @@
                 "rhs": "Linux"
             },
             "cacheVariables": {
-                "BUILD_TESTING": "ON"
+                "BUILD_DOCS": "ON",
+                "BUILD_TESTING": "ON",
+                "SWIG_PYTHON": "ON"
             }
         },
         {
