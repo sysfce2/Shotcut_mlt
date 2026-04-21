@@ -3,7 +3,7 @@
  * \brief event handling
  * \see mlt_events_struct
  *
- * Copyright (C) 2004-2021 Meltytech, LLC
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -45,9 +45,10 @@ typedef struct
 } mlt_event_data_thread;
 
 /** event handler when receiving an event message
- * \param the properties object on which the event was registered
- * \param an opaque pointer to the listener's data
- * \param an event data object
+ *
+ * The first argument is the properties object on which the event was registered.
+ * The second argument is an opaque pointer to the listener's data.
+ * The third argument is an event data object.
  */
 typedef void (*mlt_listener)(mlt_properties, void *, mlt_event_data);
 

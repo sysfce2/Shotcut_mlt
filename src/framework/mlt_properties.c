@@ -943,7 +943,7 @@ int mlt_properties_set_or_default(mlt_properties self,
 
 /** Set a property to a string.
  *
- * Unlike \mlt_properties_set this function does not attempt to interpret an expression.
+ * Unlike mlt_properties_set() this function does not attempt to interpret an expression.
  * The property name "properties" is reserved to load the preset in \p value.
  * The event "property-changed" is fired after the property has been set.
  *
@@ -1303,7 +1303,7 @@ mlt_position mlt_properties_get_position(mlt_properties self, const char *name)
  *
  * \public \memberof mlt_properties_s
  * \param self a properties list
- * \param name the property to get
+ * \param name the property to set
  * \param value the position
  * \return true if error
  */
@@ -2999,7 +2999,7 @@ extern mlt_rect mlt_properties_anim_get_rect(mlt_properties self,
  * MLT uses UTF-8 for strings, but Windows cannot accept UTF-8 for a filename.
  * Windows uses code pages for the locale encoding.
  * \public \memberof mlt_properties_s
- * \param self a properties list
+ * \param properties a properties list
  * \param name_from the property to read whose value is a UTF-8 string
  * \param name_to the name of the new property that will contain converted string
  * \return true if error
@@ -3021,7 +3021,7 @@ int mlt_properties_from_utf8(mlt_properties properties, const char *name_from, c
  *
  * \public \memberof mlt_properties_s
  * \param self a properties list
- * \param name the property to get
+ * \param name the property to set
  * \param properties the properties list to nest into \p self with \p name
  * \return true if error
  */

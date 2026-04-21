@@ -3,7 +3,7 @@
  * \brief a field for planting multiple transitions and filters
  * \see mlt_field_s
  *
- * Copyright (C) 2003-2018 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -47,7 +47,7 @@ struct mlt_field_s
     mlt_tractor tractor;
 };
 
-/** Construct a field, mulitrack, and tractor.
+/** Construct a field, multitrack, and tractor.
  *
  * \public \memberof mlt_field_s
  * \return a new field
@@ -66,7 +66,7 @@ mlt_field mlt_field_init()
         // Construct a tractor
         self->tractor = mlt_tractor_init();
 
-        // The first plant will be connected to the mulitrack
+        // The first plant will be connected to the multitrack
         self->producer = MLT_MULTITRACK_SERVICE(self->multitrack);
 
         // Connect the tractor to the multitrack
@@ -98,7 +98,7 @@ mlt_field mlt_field_new(mlt_multitrack multitrack, mlt_tractor tractor)
         // Construct a tractor
         self->tractor = tractor;
 
-        // The first plant will be connected to the mulitrack
+        // The first plant will be connected to the multitrack
         self->producer = MLT_MULTITRACK_SERVICE(self->multitrack);
 
         // Connect the tractor to the multitrack

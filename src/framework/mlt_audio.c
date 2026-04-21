@@ -3,7 +3,7 @@
  * \brief Audio class
  * \see mlt_mlt_audio_s
  *
- * Copyright (C) 2020 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -247,10 +247,10 @@ void mlt_audio_get_planes(mlt_audio self, uint8_t **planes)
 
 /** Set a range of samples to silence.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param self the Audio object
- * \param samples the new number of samples to silent
- * \param start the sample to begin the silence
+ * \param samples the number of samples to silence
+ * \param start the sample at which to begin the silence
  * \return none
  */
 
@@ -431,12 +431,12 @@ void mlt_audio_reverse(mlt_audio self)
 
 /** Copy audio samples from src to dst.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param dst the destination object
  * \param src the source object
  * \param samples the number of samples to copy
- * \param src_offset the number of samples to skip from the source
- * \param dst_offset the number of samples to skip from the destination
+ * \param src_start the number of samples to skip from the source
+ * \param dst_start the number of samples to skip from the destination
  * \return none
  */
 
@@ -503,7 +503,7 @@ void mlt_audio_copy(mlt_audio dst, mlt_audio src, int samples, int src_start, in
 
 /** Determine the number of samples that belong in a frame at a time position.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param fps the frame rate
  * \param frequency the sample rate
  * \param position the time position
@@ -525,7 +525,7 @@ int mlt_audio_calculate_frame_samples(float fps, int frequency, int64_t position
 
 /** Determine the number of samples that belong before a time position.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param fps the frame rate
  * \param frequency the sample rate
  * \param position the time position
@@ -547,7 +547,7 @@ int64_t mlt_audio_calculate_samples_to_position(float fps, int frequency, int64_
 /** Get the short name for an audio format.
  *
  * You do not need to deallocate the returned string.
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param format an audio format enum
  * \return a string for the name of the image format
  */
@@ -575,7 +575,7 @@ const char *mlt_audio_format_name(mlt_audio_format format)
 
 /** Get the amount of bytes needed for a block of audio.
   *
-  * \public \memberof mlt_frame_s
+  * \public \memberof mlt_audio_s
   * \param format an audio format enum
   * \param samples the number of samples per channel
   * \param channels the number of channels
@@ -604,7 +604,7 @@ int mlt_audio_format_size(mlt_audio_format format, int samples, int channels)
 /** Get the short name for a channel layout.
  *
  * You do not need to deallocate the returned string.
- * \public \member of mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param layout the channel layout
  * \return a string for the name of the channel layout
  */
@@ -672,7 +672,7 @@ const char *mlt_audio_channel_layout_name(mlt_channel_layout layout)
 
 /** Get the id of channel layout from short name.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param name the channel layout short name
  * \return a channel layout
  */
@@ -692,7 +692,7 @@ mlt_channel_layout mlt_audio_channel_layout_id(const char *name)
 
 /** Get the number of channels for a channel layout.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param layout the channel layout
  * \return the number of channels for the channel layout
  */
@@ -760,7 +760,7 @@ int mlt_audio_channel_layout_channels(mlt_channel_layout layout)
 
 /** Get a default channel layout for a given number of channels.
  *
- * \public \memberof mlt_frame_s
+ * \public \memberof mlt_audio_s
  * \param channels the number of channels
  * \return the default channel layout
  */

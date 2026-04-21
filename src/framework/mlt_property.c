@@ -3,7 +3,7 @@
  * \brief Property class definition
  * \see mlt_property_s
  *
- * Copyright (C) 2003-2025 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -973,6 +973,7 @@ void mlt_property_pass(mlt_property self, mlt_property that)
  * \param frames a frame count
  * \param fps frames per second
  * \param[out] s the string to write into - must have enough space to hold largest time string
+ * \param drop whether to use drop-frame timecode for applicable frame rates
  */
 
 static void time_smpte_from_frames(int frames, double fps, char *s, int drop)

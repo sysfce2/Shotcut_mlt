@@ -3,7 +3,7 @@
  * \brief interface for all frame classes
  * \see mlt_frame_s
  *
- * Copyright (C) 2003-2025 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -568,6 +568,7 @@ uint8_t *mlt_frame_get_alpha(mlt_frame self)
  *
  * \public \memberof mlt_frame_s
  * \param self a frame
+ * \param[out] size the size of the alpha channel data in bytes
  * \return the alpha channel or NULL
  */
 
@@ -605,7 +606,7 @@ uint8_t *mlt_frame_get_alpha_size(mlt_frame self, int *size)
  * \param[out] buffer an audio buffer
  * \param[in,out] format the audio format
  * \param[in,out] frequency the sample rate
- * \param[in,out] channels
+ * \param[in,out] channels the number of audio channels
  * \param[in,out] samples the number of samples per frame
  * \return true if error
  */

@@ -3,7 +3,7 @@
  * \brief multitrack service class
  * \see mlt_multitrack_s
  *
- * Copyright (C) 2003-2015 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -42,7 +42,7 @@ typedef struct mlt_track_s *mlt_track;
  * A multitrack is a parallel container of producers that acts a single producer.
  *
  * \extends mlt_producer_s
- * \properties \em log_id not currently used, but sets it to "mulitrack"
+ * \properties \em log_id not currently used, but sets it to "multitrack"
  */
 
 struct mlt_multitrack_s

@@ -3,7 +3,7 @@
  * \brief Image class
  * \see mlt_mlt_image_s
  *
- * Copyright (C) 2020-2025 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -926,8 +926,8 @@ extern int mlt_image_is_opaque(mlt_image self)
   *
   * \public \memberof mlt_image_s
   * \param format the image format
-  * \param width width of the image in pixels
-  * \param height height of the image in pixels
+  * \param width the width of the image in pixels
+  * \param height the height of the image in pixels
   * \param[out] bpp the number of bytes per pixel (optional)
   * \return the number of bytes
   */
@@ -981,13 +981,13 @@ int mlt_image_format_size(mlt_image_format format, int width, int height, int *b
 
 /** Build a planes pointers of image mapping
  *
- * For proper and unified planar image processing, planes sizes and planes pointers should
- * be provides to processing code.
+ * For proper and unified planar image processing, plane sizes and plane pointers should
+ * be provided to processing code.
  *
  * \public \memberof mlt_image_s
  * \param format the image format
- * \param width width of the image in pixels
- * \param height height of the image in pixels
+ * \param width the width of the image in pixels
+ * \param height the height of the image in pixels
  * \param[in] data pointer to allocated image
  * \param[out] planes pointers to plane's pointers will be set
  * \param[out] strides pointers to plane's strides will be set
@@ -1058,8 +1058,8 @@ void mlt_image_format_planes(
  *
  * \public \memberof mlt_image_s
  * \param image the image buffer
- * \param width width of the image in pixels
- * \param height height of the image in pixels
+ * \param width the width of the image in pixels
+ * \param height the height of the image in pixels
  * \return true (1) or false (0) if the image is opaque
  */
 int mlt_image_rgba_opaque(uint8_t *image, int width, int height)

@@ -3,7 +3,7 @@
  * \brief sliced threading processing helper
  * \see mlt_slices_s
  *
- * Copyright (C) 2016-2022 Meltytech, LLC
+ * Copyright (C) 2016-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -144,7 +144,7 @@ static void *mlt_slices_worker(void *p)
 /** Initialize a sliced threading context
  *
  * \private \memberof mlt_slices_s
- * \param threads number of threads to use for job list, 0 for #cpus
+ * \param threads number of threads to use for job list, 0 for the number of CPUs
  * \param policy scheduling policy of processing threads, -1 for normal
  * \param priority priority value that can be used with the scheduling algorithm, -1 for maximum
  * \return the context pointer

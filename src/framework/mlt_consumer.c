@@ -220,7 +220,7 @@ static void apply_profile_properties(mlt_consumer self,
  * \private \memberof mlt_consumer_s
  * \param owner the events object
  * \param self the consumer
- * \param name the name of the property that changed
+ * \param event_data the event data containing the name of the property that changed
  */
 
 static void mlt_consumer_property_changed(mlt_properties owner,
@@ -327,7 +327,7 @@ static void mlt_consumer_property_changed(mlt_properties owner,
  * \private \memberof mlt_consumer_s
  * \param owner the events object
  * \param consumer the consumer on which this event occurred
- * \param frame the frame that was shown
+ * \param event_data the event data containing the frame that was shown
  */
 
 static void on_consumer_frame_show(mlt_properties owner,

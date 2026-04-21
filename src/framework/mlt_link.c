@@ -3,7 +3,7 @@
  * \brief link service class
  * \see mlt_link_s
  *
- * Copyright (C) 2020 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -225,7 +225,8 @@ mlt_link mlt_link_filter_init(mlt_profile profile, mlt_service_type type, const 
  *
  * \public \memberof mlt_link_s
  * \param type this must be mlt_service_type_link
- * \param service the name of the filter that this link is wrapping
+ * \param id the name of the filter that this link is wrapping
+ * \param data unused
  * \return the service metadata as a structured properties list
  */
 

@@ -3,7 +3,7 @@
  * \brief Property Animation class definition
  * \see mlt_animation_s
  *
- * Copyright (C) 2004-2023 Meltytech, LLC
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -389,7 +389,7 @@ void mlt_animation_set_length(mlt_animation self, int length)
  * \public \memberof mlt_animation_s
  * \param self an animation
  * \param item an already allocated animation item
- * \param value the string representing an animation
+ * \param value the string representation of a single keyframe item (e.g. "50~=255")
  * \return true if there was an error
  */
 
@@ -1056,12 +1056,12 @@ static inline double distance(double x0, double y0, double x1, double y1)
  * And further reduced here with tension added:
  *   https://qroph.github.io/2018/07/30/smooth-paths-using-catmull-rom-splines.html
  *
- * This imlementation supports the alpha value which can be set to 0.5 to result in
- * centripetal Catmull–Rom splines. Centripital Catmull–Rom splines are guaranteed
+ * This implementation supports the alpha value which can be set to 0.5 to result in
+ * centripetal Catmull–Rom splines. Centripetal Catmull–Rom splines are guaranteed
  * to not have any cusps or loops. These are not desirable because they result in the
  * value reversing direction when interpolation from one point to the next.
  *
- * To use this function for animation item interpolation, provide 4 points: two points preceeding t
+ * To use this function for animation item interpolation, provide 4 points: two points preceding t
  * and two points following t. Use the item frame number as the x and the item value as y for each
  * point. t should represent the fractional progress between point 1 and point 2.
  *
@@ -1069,6 +1069,15 @@ static inline double distance(double x0, double y0, double x1, double y1)
  * meet the requirement for 4 points.
  
  * \private \memberof mlt_animation_s
+ * \param x0 the x coordinate of the first control point
+ * \param y0 the y coordinate of the first control point
+ * \param x1 the x coordinate of the second control point (start of interpolated segment)
+ * \param y1 the y coordinate of the second control point (start of interpolated segment)
+ * \param x2 the x coordinate of the third control point (end of interpolated segment)
+ * \param y2 the y coordinate of the third control point (end of interpolated segment)
+ * \param x3 the x coordinate of the fourth control point
+ * \param y3 the y coordinate of the fourth control point
+ * \param t the fractional progress between x1,y1 and x2,y2
  * \param alpha
  *      0.0 for the uniform spline
  *      0.5 for the centripetal spline (no cusps)

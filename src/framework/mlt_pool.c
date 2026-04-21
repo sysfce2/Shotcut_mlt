@@ -3,7 +3,7 @@
  * \brief memory pooling functionality
  * \see mlt_pool_s
  *
- * Copyright (C) 2003-2018 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -217,7 +217,7 @@ static void pool_return(void *ptr)
             // Lock the pool
             pthread_mutex_lock(&self->lock);
 
-            // Push the that back back on to the stack
+            // Push it back onto the stack
             mlt_deque_push_back(self->stack, ptr);
 
             // Unlock the pool

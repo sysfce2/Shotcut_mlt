@@ -3,7 +3,7 @@
  * \brief multitrack service class
  * \see mlt_multitrack_s
  *
- * Copyright (C) 2003-2025 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -403,7 +403,7 @@ static int add_unique(mlt_position *array, int size, mlt_position position)
 /** Increase the capacity of a set of mlt_position.
  *
  * \private \memberof mlt_multitrack_s
- * \param array an array of positions (the set)
+ * \param map an array of positions (the set)
  * \param count the current number of elements in the array (not the capacity)
  * \param[out] size the current capacity of the array
  * \return the new address of the array
@@ -539,7 +539,7 @@ mlt_position mlt_multitrack_clip(mlt_multitrack self, mlt_whence whence, int ind
  *
  * The get_frame of a tractor pulls frames from it's connected service on all tracks and
  * will terminate as soon as it receives a test card with a last_track property. The
- * important case here is that the mulitrack does not move to the next frame until all
+ * important case here is that the multitrack does not move to the next frame until all
  * tracks have been pulled.
  *
  * Reasoning: In order to seek on a network such as above, the multitrack needs to ensure
@@ -554,7 +554,7 @@ mlt_position mlt_multitrack_clip(mlt_multitrack self, mlt_whence whence, int ind
  * </pre>
  *
  * \private \memberof mlt_multitrack_s
- * \param parent the producer interface to a mulitrack
+ * \param parent the producer interface to a multitrack
  * \param[out] frame a frame by reference
  * \param index the 0-based track index
  * \return true if there was an error

@@ -3,7 +3,7 @@
  * \brief abstraction for all transition services
  * \see mlt_transition_s
  *
- * Copyright (C) 2003-2022 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -111,7 +111,7 @@ mlt_properties mlt_transition_properties(mlt_transition self)
  * \param self a transition
  * \param producer a producer
  * \param a_track the track index of the first input
- * \param b_track the track index of the second index
+ * \param b_track the track index of the second input
  * \return true on error
  */
 
@@ -145,8 +145,9 @@ void mlt_transition_set_in_and_out(mlt_transition self, mlt_position in, mlt_pos
 /** Change the track indices of a transition.
  *
  * \public \memberof mlt_transition_s
+ * \param self a transition
  * \param a_track the track index of the first input
- * \param b_track the track index of the second index
+ * \param b_track the track index of the second input
  */
 
 void mlt_transition_set_tracks(mlt_transition self, int a_track, int b_track)

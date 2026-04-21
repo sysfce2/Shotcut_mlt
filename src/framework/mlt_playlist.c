@@ -3,7 +3,7 @@
  * \brief playlist service class
  * \see mlt_playlist_s
  *
- * Copyright (C) 2003-2023 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -2007,7 +2007,7 @@ int mlt_playlist_remove_region(mlt_playlist self, mlt_position position, int len
  * \param producer a producer
  * \param frame a frame by reference
  * \param index the time at which to get the frame
- * \return false
+ * \return 0 for success, -1 if producer is NULL
  */
 
 static int producer_get_frame(mlt_producer producer, mlt_frame_ptr frame, int index)

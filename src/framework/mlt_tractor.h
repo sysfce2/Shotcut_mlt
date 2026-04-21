@@ -3,7 +3,7 @@
  * \brief tractor service class
  * \see mlt_tractor_s
  *
- * Copyright (C) 2003-2015 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -31,7 +31,7 @@
  * to manage a multitrack, track filters, and transitions.
  *
  * \extends mlt_producer_s
- * \properties \em multitrack holds a reference to the mulitrack object that a tractor manages
+ * \properties \em multitrack holds a reference to the multitrack object that a tractor manages
  * \properties \em field holds a reference to the field object that a tractor manages
  * \properties \em producer holds a reference to an encapsulated producer
  */

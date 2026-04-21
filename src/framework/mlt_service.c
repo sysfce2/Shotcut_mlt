@@ -3,7 +3,7 @@
  * \brief interface definition for all service classes
  * \see mlt_service_s
  *
- * Copyright (C) 2003-2022 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -666,7 +666,7 @@ static void mlt_service_filter_changed(mlt_service owner, mlt_service self)
  * \private \memberof mlt_service_s
  * \param owner ignored
  * \param self the service on which the "property-changed" event is fired
- * \param name the name of the property that changed
+ * \param event_data the event data containing the name of the property that changed
  */
 
 static void mlt_service_filter_property_changed(mlt_service owner,

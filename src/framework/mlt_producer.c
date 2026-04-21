@@ -3,7 +3,7 @@
  * \brief abstraction for all producer services
  * \see mlt_producer_s
  *
- * Copyright (C) 2003-2023 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -125,7 +125,7 @@ int mlt_producer_init(mlt_producer self, void *child)
  * \private \memberof mlt_producer_s
  * \param owner a service (ignored)
  * \param self the producer
- * \param name the property that changed
+ * \param event_data the event data containing the name of the property that changed
  */
 
 static void mlt_producer_property_changed(mlt_service owner,
@@ -329,7 +329,7 @@ mlt_properties mlt_producer_properties(mlt_producer self)
  * \public \memberof mlt_producer_s
  * \param self a producer
  * \param position set the "play head" position of the producer
- * \return false
+ * \return true if error
  * \todo Document how the properties affect behavior.
  * \see mlt_producer_seek_time
  */
@@ -380,7 +380,7 @@ int mlt_producer_seek(mlt_producer self, mlt_position position)
  * \public \memberof mlt_producer_s
  * \param self a producer
  * \param time set the "play head" position of the producer to the time string
- * \return false
+ * \return true if error
  * \see mlt_producer_seek
  */
 
@@ -480,7 +480,7 @@ double mlt_producer_get_fps(mlt_producer self)
  * \param self a producer
  * \param in the relative starting time; a negative value is the same as 0
  * \param out the relative ending time; a negative value is the same as length - 1
- * \return false
+ * \return true if error
  */
 
 int mlt_producer_set_in_and_out(mlt_producer self, mlt_position in, mlt_position out)

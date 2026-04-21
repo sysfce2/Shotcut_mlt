@@ -3,7 +3,7 @@
  * \brief link service class
  * \see mlt_link_s
  *
- * Copyright (C) 2020 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -28,7 +28,7 @@
 
 /** \brief Link class
  *
- * The link is a producer class that that can be connected to other link producers in a Chain.
+ * The link is a producer class that can be connected to other link producers in a Chain.
  *
  * \extends mlt_producer_s
  * \properties \em next holds a reference to the next producer in the chain

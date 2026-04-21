@@ -3,7 +3,7 @@
  * \brief chain service class
  * \see mlt_chain_s
  *
- * Copyright (C) 2020 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -29,7 +29,7 @@
 
 /** \brief Chain class
  *
- * The chain is a producer class that that can connect multiple link producers in a sequence.
+ * The chain is a producer class that can connect multiple link producers in a sequence.
  *
  * \extends mlt_producer_s
  */
