@@ -1,7 +1,6 @@
 /**
  * MltFilteredConsumer.h - MLT Wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -33,6 +32,14 @@ class Service;
 class Filter;
 class Profile;
 
+/** \brief A Consumer with an internal filter chain between the source and output.
+ *
+ * FilteredConsumer inserts a private service chain between the connected
+ * producer and the underlying consumer, allowing filters to be attached
+ * (via attach()) without modifying the source service network.
+ *
+ * \extends Consumer
+ */
 class MLTPP_DECLSPEC FilteredConsumer : public Consumer
 {
 private:

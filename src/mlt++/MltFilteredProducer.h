@@ -1,7 +1,6 @@
 /**
  * MltFilteredProducer.h - MLT Wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -33,6 +32,14 @@ class Service;
 class Filter;
 class Profile;
 
+/** \brief A Producer with an internal filter chain applied to its output.
+ *
+ * FilteredProducer wraps another producer and applies an ordered chain of
+ * attached filters to each frame before delivery. Filters are added via
+ * attach() and removed via detach().
+ *
+ * \extends Producer
+ */
 class MLTPP_DECLSPEC FilteredProducer : public Producer
 {
 private:

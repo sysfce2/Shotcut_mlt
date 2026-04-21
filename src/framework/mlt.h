@@ -2,7 +2,7 @@
  * \file mlt.h
  * \brief header file for lazy client and implementation code :-)
  *
- * Copyright (C) 2003-2021 Meltytech, LLC
+ * Copyright (C) 2003-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -24,11 +24,18 @@
 
 /** \mainpage MLT API Reference Documentation
  * \par
- * We recommend that you look in <a href="annotated.html"><b>Data Structures</b></a>
+ * We recommend that you look in <a href="annotated.html"><b>Classes</b></a>
  * or <a href="files.html"><b>Files</b></a>.
  * \par
  * Additional documentation about MLT, in general, can be found on the
  * <a href="https://www.mltframework.org/docs/">MLT website</a>.
+ */
+
+/** \defgroup mlt MLT C Framework
+ *  \brief Core C library providing all MLT services, properties, and plugin infrastructure.
+ *
+ *  Include this header to pull in all framework declarations. Plugin modules and
+ *  language bindings are built on top of these C interfaces.
  */
 
 #ifdef __cplusplus

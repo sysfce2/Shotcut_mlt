@@ -1,6 +1,6 @@
 /**
  * MltRepository.h - MLT Wrapper
- * Copyright (C) 2008-2017 Meltytech, LLC
+ * Copyright (C) 2008-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,6 +32,14 @@ namespace Mlt {
 class Profile;
 class Properties;
 
+/** \brief C++ wrapper for ::mlt_repository — the plugin service registry.
+ *
+ * The repository is initialised once via Factory::init() and holds all
+ * registered producer, filter, transition, and consumer services. It provides
+ * metadata queries and service instantiation.
+ *
+ * \see mlt_repository_s
+ */
 class MLTPP_DECLSPEC Repository
 {
 private:
@@ -47,17 +55,25 @@ public:
                           const char *service,
                           mlt_register_callback symbol);
     void *create(Profile &profile, mlt_service_type type, const char *service, void *arg);
+    /** Return registered consumer service names. Caller owns the result. */
     Properties *consumers() const;
+    /** Return registered filter service names. Caller owns the result. */
     Properties *filters() const;
+    /** Return registered link service names. Caller owns the result. */
     Properties *links() const;
+    /** Return registered producer service names. Caller owns the result. */
     Properties *producers() const;
+    /** Return registered transition service names. Caller owns the result. */
     Properties *transitions() const;
     void register_metadata(mlt_service_type type,
                            const char *service,
                            mlt_metadata_callback,
                            void *callback_data);
+    /** Return the metadata Properties for \p service of \p type. Caller owns the result. */
     Properties *metadata(mlt_service_type type, const char *service) const;
+    /** Return available languages. Caller owns the result. */
     Properties *languages() const;
+    /** Return preset names. Caller owns the result. */
     static Properties *presets();
 };
 } // namespace Mlt

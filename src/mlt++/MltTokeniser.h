@@ -1,7 +1,6 @@
 /**
  * MltTokeniser.h - MLT Wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -26,6 +25,14 @@
 #include <framework/mlt.h>
 
 namespace Mlt {
+/** \brief C++ wrapper for ::mlt_tokeniser — splits a string by a delimiter.
+ *
+ * A simple string tokeniser used by the MLT framework to parse
+ * delimited text (e.g. property lists). Call parse() to split a string,
+ * then iterate the results with count() and get().
+ *
+ * \see mlt_tokeniser_s
+ */
 class MLTPP_DECLSPEC Tokeniser
 {
 private:

@@ -114,7 +114,7 @@ FULL_PATH_NAMES = YES
 # If left blank the directory from which doxygen is run is used as the 
 # path to strip.
 
-STRIP_FROM_PATH = src/framework/
+STRIP_FROM_PATH = src/
 
 # The STRIP_FROM_INC_PATH tag can be used to strip a user-defined part of 
 # the path mentioned in the documentation of a class, which tells 
@@ -188,7 +188,7 @@ ALIASES += "envvar=\xrefitem envvars \"Environment Variable\" \"Environment Vari
 # For instance, some of the names that are used will be different. The list 
 # of all members will be omitted, etc.
 
-OPTIMIZE_OUTPUT_FOR_C = YES
+OPTIMIZE_OUTPUT_FOR_C = NO
 
 # Set the OPTIMIZE_OUTPUT_JAVA tag to YES if your project consists of Java 
 # sources only. Doxygen will then generate output that is more tailored for 
@@ -216,7 +216,7 @@ OPTIMIZE_OUTPUT_VHDL = NO
 # func(std::string) {}). This also make the inheritance and collaboration 
 # diagrams that involve STL classes more complete and accurate.
 
-BUILTIN_STL_SUPPORT = NO
+BUILTIN_STL_SUPPORT = YES
 
 # If you use Microsoft's C++/CLI language, you should set this option to YES to
 # enable parsing support.
@@ -554,7 +554,8 @@ WARN_LOGFILE =
 # directories like "/usr/src/myproject". Separate the files or directories 
 # with spaces.
 
-INPUT = src/framework
+INPUT = src/framework \
+        src/mlt++
 
 # This tag can be used to specify the character encoding of the source files 
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding, which is 
@@ -1298,7 +1299,7 @@ HIDE_UNDOC_RELATIONS = YES
 # toolkit from AT&T and Lucent Bell Labs. The other options in this section 
 # have no effect if this option is set to NO (the default)
 
-HAVE_DOT = NO
+HAVE_DOT = YES
 
 # By default doxygen will write a font called FreeSans.ttf to the output 
 # directory and reference it in all dot files that doxygen generates. This 
@@ -1353,14 +1354,14 @@ TEMPLATE_RELATIONS = NO
 # file showing the direct and indirect include dependencies of the file with 
 # other documented files.
 
-INCLUDE_GRAPH = YES
+INCLUDE_GRAPH = NO
 
 # If the ENABLE_PREPROCESSING, SEARCH_INCLUDES, INCLUDED_BY_GRAPH, and 
 # HAVE_DOT tags are set to YES then doxygen will generate a graph for each 
 # documented header file showing the documented files that directly or 
 # indirectly include this file.
 
-INCLUDED_BY_GRAPH = YES
+INCLUDED_BY_GRAPH = NO
 
 # If the CALL_GRAPH and HAVE_DOT options are set to YES then 
 # doxygen will generate a call dependency graph for every global function 
@@ -1368,7 +1369,7 @@ INCLUDED_BY_GRAPH = YES
 # the time of a run. So in most cases it will be better to enable call graphs 
 # for selected functions only using the \callgraph command.
 
-CALL_GRAPH = YES
+CALL_GRAPH = NO
 
 # If the CALLER_GRAPH and HAVE_DOT tags are set to YES then 
 # doxygen will generate a caller dependency graph for every global function 

@@ -1,7 +1,6 @@
 /**
  * MltField.h - Field wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,19 +31,31 @@ class Service;
 class Filter;
 class Transition;
 
+/** \brief C++ wrapper for ::mlt_field — manages transitions and filters for a Tractor.
+ *
+ * A field maintains the ordered list of transitions and filters that are
+ * applied across the tracks of a Tractor. Obtain it via Tractor::field().
+ *
+ * \extends Service
+ * \see mlt_field_s
+ */
 class MLTPP_DECLSPEC Field : public Service
 {
 private:
     mlt_field instance;
 
 public:
+    /** Wrap an existing ::mlt_field handle. */
     Field(mlt_field field);
     Field(Field &field);
     virtual ~Field();
     mlt_field get_field();
     mlt_service get_service() override;
+    /** Attach \p filter to \p track. */
     int plant_filter(Filter &filter, int track = 0);
+    /** Attach \p transition between tracks \p a_track and \p b_track. */
     int plant_transition(Transition &transition, int a_track = 0, int b_track = 1);
+    /** Remove \p service from the field. */
     void disconnect_service(Service &service);
 };
 } // namespace Mlt

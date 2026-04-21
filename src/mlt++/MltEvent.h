@@ -1,6 +1,6 @@
 /**
  * MltEvent.h - MLT Wrapper
- * Copyright (C) 2004-2021 Meltytech, LLC
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,6 +27,14 @@
 namespace Mlt {
 class Frame;
 
+/** \brief C++ wrapper for ::mlt_event — a registered event listener handle.
+ *
+ * Returned by Properties::listen(). Call block()/unblock() to suppress or
+ * resume event delivery. The owning Properties object manages the lifecycle;
+ * delete_event() or Properties::wait_for() can be used to clean up.
+ *
+ * \see mlt_event_s
+ */
 class MLTPP_DECLSPEC Event
 {
 private:
@@ -37,11 +45,21 @@ public:
     Event(Event &);
     ~Event();
     mlt_event get_event();
+    /** Return true if the underlying handle is non-null. */
     bool is_valid();
+    /** Suppress delivery of this event. */
     void block();
+    /** Resume delivery of this event. */
     void unblock();
 };
 
+/** \brief C++ wrapper for ::mlt_event_data — typed payload for an MLT event.
+ *
+ * Passed to event listener callbacks. Use the to_*() accessors to extract
+ * the payload in the appropriate type.
+ *
+ * \see mlt_event_data
+ */
 class MLTPP_DECLSPEC EventData
 {
 private:

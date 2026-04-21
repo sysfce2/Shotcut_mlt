@@ -1,7 +1,6 @@
 /**
  * MltMultitrack.h - Multitrack wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -31,24 +30,39 @@ namespace Mlt {
 class Service;
 class Producer;
 
+/** \brief C++ wrapper for ::mlt_multitrack — parallel track container.
+ *
+ * A multitrack holds multiple producers on parallel tracks and delivers
+ * one frame per track per pull. It is the track container inside a Tractor.
+ *
+ * \extends Producer
+ * \see mlt_multitrack_s
+ */
 class MLTPP_DECLSPEC Multitrack : public Producer
 {
 private:
     mlt_multitrack instance;
 
 public:
+    /** Wrap an existing ::mlt_multitrack handle. */
     Multitrack(mlt_multitrack multitrack);
     Multitrack(Service &multitrack);
     Multitrack(Multitrack &multitrack);
     virtual ~Multitrack();
     mlt_multitrack get_multitrack();
     mlt_producer get_producer() override;
+    /** Connect \p producer as track \p index. */
     int connect(Producer &producer, int index);
+    /** Insert \p producer at \p index, shifting higher tracks up. */
     int insert(Producer &producer, int index);
+    /** Disconnect the track at \p index. */
     int disconnect(int index);
     int clip(mlt_whence whence, int index);
+    /** Return the number of tracks. */
     int count();
+    /** Return the producer on track \p index. Caller does not own the result. */
     Producer *track(int index);
+    /** Recalculate the multitrack length from its tracks. */
     void refresh();
 };
 } // namespace Mlt

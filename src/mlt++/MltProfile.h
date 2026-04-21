@@ -1,6 +1,6 @@
 /**
  * MltProfile.h - MLT Wrapper
- * Copyright (C) 2008-2025 Meltytech, LLC
+ * Copyright (C) 2008-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,6 +32,15 @@ namespace Mlt {
 class Properties;
 class Producer;
 
+/** \brief C++ wrapper for ::mlt_profile — video format parameters.
+ *
+ * A profile describes the video format that services will produce and
+ * consume: resolution, frame rate, aspect ratio, colorspace, and
+ * interlace mode. Pass a profile to service constructors to configure
+ * the format.
+ *
+ * \see mlt_profile_s
+ */
 class MLTPP_DECLSPEC Profile
 {
 private:
@@ -61,6 +70,7 @@ public:
     double dar() const;
     int is_explicit() const;
     int colorspace() const;
+    /** Return a list of all available profile names. Caller owns the result. */
     static Properties *list();
     void from_producer(Producer &producer);
     void set_width(int width);

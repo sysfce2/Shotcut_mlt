@@ -1,7 +1,6 @@
 /**
  * MltPushConsumer.h - MLT Wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -31,6 +30,15 @@ class Service;
 class PushPrivate;
 class Profile;
 
+/** \brief A Consumer that accepts frames pushed in from external code.
+ *
+ * Unlike a pull-based Consumer (which drives its own render loop),
+ * PushConsumer receives frames via push(). This is useful for integrating
+ * MLT into an external render loop or for feeding decoded frames from a
+ * third-party source.
+ *
+ * \extends Consumer
+ */
 class MLTPP_DECLSPEC PushConsumer : public Consumer
 {
 private:
@@ -44,6 +52,8 @@ public:
     int push(Frame *frame);
     int push(Frame &frame);
     int drain();
+    /** Construct a blank frame with an allocated pixel buffer of \p size bytes.
+     *  Caller owns the result. */
     Frame *construct(int);
 };
 } // namespace Mlt

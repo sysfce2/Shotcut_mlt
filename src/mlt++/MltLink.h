@@ -1,6 +1,6 @@
 /**
  * MltLink.h - MLT Wrapper
- * Copyright (C) 2020-2021 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -29,6 +29,15 @@ namespace Mlt {
 class Producer;
 class Profile;
 
+/** \brief C++ wrapper for ::mlt_link — a processing stage in a Chain.
+ *
+ * A link is similar to a filter but designed for use within a Chain. Links
+ * are attached with Chain::attach() and applied in order to the source
+ * producer. Connect the next producer in the chain with connect_next().
+ *
+ * \extends Producer
+ * \see mlt_link_s
+ */
 class MLTPP_DECLSPEC Link : public Producer
 {
 private:

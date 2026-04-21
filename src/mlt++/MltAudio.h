@@ -1,6 +1,6 @@
 /**
  * MltAudio.h - MLT Wrapper
- * Copyright (C) 2020 Meltytech, LLC
+ * Copyright (C) 2020-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,6 +25,14 @@
 #include <framework/mlt.h>
 
 namespace Mlt {
+/** \brief C++ wrapper for ::mlt_audio — a block of decoded audio samples.
+ *
+ * Holds a raw audio buffer together with its format metadata (frequency,
+ * channels, layout, sample count). Obtain one from Frame::get_audio() or
+ * construct one manually for push-based workflows.
+ *
+ * \see mlt_audio_s
+ */
 class MLTPP_DECLSPEC Audio
 {
 private:

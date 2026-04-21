@@ -1,7 +1,6 @@
 /**
  * MltDeque.h - MLT Wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -26,6 +25,14 @@
 #include <framework/mlt.h>
 
 namespace Mlt {
+/** \brief C++ wrapper for ::mlt_deque — a double-ended queue of void pointers.
+ *
+ * A lightweight LIFO/FIFO container used internally by the MLT framework
+ * for frame queuing. Items are untyped void pointers; the caller is
+ * responsible for lifetime management.
+ *
+ * \see mlt_deque_s
+ */
 class MLTPP_DECLSPEC Deque
 {
 private:

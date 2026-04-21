@@ -1,7 +1,6 @@
 /**
  * MltParser.h - MLT Wrapper
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -27,15 +26,26 @@
 #include <framework/mlt.h>
 
 namespace Mlt {
+class Chain;
+class Filter;
+class Link;
+class Multitrack;
+class Playlist;
+class Producer;
 class Properties;
 class Service;
-class Producer;
-class Playlist;
 class Tractor;
-class Multitrack;
-class Filter;
 class Transition;
 
+/** \brief C++ wrapper for ::mlt_parser — walks a service network and fires callbacks.
+ *
+ * Subclass Parser and override the virtual on_start and on_end methods to
+ * inspect or transform every node in a service graph(producers, playlists, *tractors, filters, transitions, chains, links).
+ * Call start() to begin traversal.
+ *
+ * \extends Properties
+ * \see mlt_parser_s
+ */
 class MLTPP_DECLSPEC Parser : public Properties
 {
 private:

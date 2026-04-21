@@ -1,7 +1,6 @@
 /**
  * Mlt.h - Convenience header file for all mlt++ objects
- * Copyright (C) 2004-2015 Meltytech, LLC
- * Author: Charles Yates <charles.yates@gmail.com>
+ * Copyright (C) 2004-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,6 +15,14 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ */
+
+/** \defgroup mltpp MLT C++ Wrappers
+ *  \brief High-level C++ wrappers around the MLT framework C API.
+ *
+ *  Include this header to pull in all mlt++ classes. The classes live in
+ *  the \c Mlt namespace and wrap the corresponding \c mlt_*_s C structs from
+ *  \c src/framework/.
  */
 
 #ifndef MLTPP_H

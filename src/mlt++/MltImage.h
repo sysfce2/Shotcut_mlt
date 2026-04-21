@@ -1,6 +1,6 @@
 /**
  * MltImage.h - MLT Wrapper
- * Copyright (C) 2021 Meltytech, LLC
+ * Copyright (C) 2021-2026 Meltytech, LLC
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -25,6 +25,15 @@
 #include <framework/mlt.h>
 
 namespace Mlt {
+/** \brief C++ wrapper for ::mlt_image \u2014 a decoded video frame buffer.
+ *
+ * Holds a raw pixel buffer together with its format metadata (width, height,
+ * image format, colorspace). Supports multi-plane formats via plane() and
+ * stride(). Use alloc() to allocate a new buffer, or construct from an
+ * existing ::mlt_image handle obtained from a Frame.
+ *
+ * \see mlt_image_s
+ */
 class MLTPP_DECLSPEC Image
 {
 private:
