@@ -2192,7 +2192,11 @@ void *mltofx_fetch_params(OfxPlugin *plugin, mlt_properties params, mlt_properti
                         default_value2 = 0.0;
 
                     char default_value[90] = "";
-                    snprintf(default_value, sizeof(default_value), "%.4f %.4f", default_value1, default_value2);
+                    snprintf(default_value,
+                             sizeof(default_value),
+                             "%.4f %.4f",
+                             default_value1,
+                             default_value2);
                     mlt_properties_set(p, "default", default_value);
 
                 } else if (strcmp(param_type, kOfxParamTypeString) == 0) {
@@ -2207,12 +2211,13 @@ void *mltofx_fetch_params(OfxPlugin *plugin, mlt_properties params, mlt_properti
                     propGetDouble((OfxPropertySetHandle) ppp, p_name, 3, &a);
 
                     char default_value[10] = "#000000FF";
-                    snprintf(default_value, sizeof(default_value),
-                            "#%02X%02X%02X%02X",
-                            (unsigned char) (a * 255.0),
-                            (unsigned char) (r * 255.0),
-                            (unsigned char) (g * 255.0),
-                            (unsigned char) (b * 255.0));
+                    snprintf(default_value,
+                             sizeof(default_value),
+                             "#%02X%02X%02X%02X",
+                             (unsigned char) (a * 255.0),
+                             (unsigned char) (r * 255.0),
+                             (unsigned char) (g * 255.0),
+                             (unsigned char) (b * 255.0));
 
                     mlt_properties_set(p, "default", default_value);
                 } else if (strcmp(param_type, kOfxParamTypeRGB) == 0) {
@@ -2222,11 +2227,12 @@ void *mltofx_fetch_params(OfxPlugin *plugin, mlt_properties params, mlt_properti
                     propGetDouble((OfxPropertySetHandle) ppp, p_name, 2, &b);
 
                     char default_value[10] = "#000000FF";
-                    snprintf(default_value, sizeof(default_value),
-                            "#%02X%02X%02XFF",
-                            (unsigned char) (r * 255.0),
-                            (unsigned char) (g * 255.0),
-                            (unsigned char) (b * 255.0));
+                    snprintf(default_value,
+                             sizeof(default_value),
+                             "#%02X%02X%02XFF",
+                             (unsigned char) (r * 255.0),
+                             (unsigned char) (g * 255.0),
+                             (unsigned char) (b * 255.0));
 
                     mlt_properties_set(p, "default", default_value);
                 }
