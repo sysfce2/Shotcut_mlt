@@ -1,6 +1,6 @@
 /*
  * producer_pgm.c -- PGM producer
- * Copyright (C) 2008-2022 Meltytech, LLC
+ * Copyright (C) 2008-2026 Meltytech, LLC
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by
@@ -128,6 +128,14 @@ static int read_pgm(char *name, uint8_t **image, int *width, int *height, int *m
             case 2:
                 *maxval = val;
                 break;
+            }
+        }
+
+        if (!error) {
+            // Validate dimensions and maxval to prevent integer overflow
+            if (*width <= 0 || *height <= 0 || *maxval <= 0 || *maxval > 65535 || *width > 16384
+                || *height > 16384) {
+                error = 1;
             }
         }
 
