@@ -194,16 +194,13 @@ typedef AEffect* (*VST_Function)(audioMasterCallback);
 static gboolean plugin_is_valid(const LADSPA_Descriptor *descriptor)
 {
     unsigned long i;
-    unsigned long icount = 0;
     unsigned long ocount = 0;
 
     for (i = 0; i < descriptor->PortCount; i++) {
         if (!LADSPA_IS_PORT_AUDIO(descriptor->PortDescriptors[i]))
             continue;
 
-        if (LADSPA_IS_PORT_INPUT(descriptor->PortDescriptors[i]))
-            icount++;
-        else
+        if (!LADSPA_IS_PORT_INPUT(descriptor->PortDescriptors[i]))
             ocount++;
     }
 
